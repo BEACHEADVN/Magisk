@@ -216,7 +216,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v7
         with:
-          name: build-out
+          name: ${{ github.sha }}
           path: out
   
       - uses: softprops/action-gh-release@v2
