@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- For stub on API 31+, we cannot rely on the platform SplashScreen -->
-    <!-- Force using SplashScreen.Common that was used for older APIs -->
-    <style name="StubSplashTheme" parent="Theme.SplashScreen.Common">
+
+    <style name="SplashTheme" parent="Theme.SplashScreen.Common">
 
         <item name="android:enforceStatusBarContrast">false</item>
         <item name="android:enforceNavigationBarContrast">false</item>
 
-        <!-- BẮT BUỘC có android: -->
         <item name="android:windowSplashScreenBackground">
             @color/splash_background
         </item>
@@ -16,10 +14,10 @@
             @drawable/ic_magisk_padded
         </item>
 
-        <!-- RẤT KHUYẾN NGHỊ: tránh icon bị đóng khung -->
         <item name="android:windowSplashScreenIconBackgroundColor">
             @null
         </item>
 
     </style>
+
 </resources>
