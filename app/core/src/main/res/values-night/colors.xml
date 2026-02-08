@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="splash_background">#0D0D0D</color>
+
+    <!-- Adaptive icon background (Dark mode) -->
+    <color name="ic_launcher_background">#00000000</color>
 </resources>
