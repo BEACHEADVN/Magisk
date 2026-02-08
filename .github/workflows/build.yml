@@ -3,6 +3,8 @@ name: Magisk Build
 on:
   push:
     branches: [master]
+    tags:
+      - "v*"
     paths:
       - "app/**"
       - "native/**"
@@ -203,10 +205,24 @@ jobs:
             /home/runner/aosp_cf_phone/cuttlefish/instances/cvd-1/logs
             /home/runner/aosp_cf_phone/cuttlefish/instances/cvd-1/cuttlefish_config.json
 
-      - name: Upload to GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: |
-            out/*.apk
-            out/*.zip
-
+  release:
+      name: Upload GitHub Release
+      runs-on: ubuntu-24.04
+      needs: build
+      if: startsWith(github.ref, 'refs/tags/')
+      permissions:
+        contents: write
+    
+      steps:
+        - name: Download build artifacts
+          uses: actions/download-artifact@v7
+          with:
+            name: ${{ github.sha }}
+            path: out
+    
+        - name: Upload to GitHub Release
+          uses: softprops/action-gh-release@v2
+          with:
+            files: |
+              out/*.apk
+              out/*.zip
