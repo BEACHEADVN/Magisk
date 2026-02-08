@@ -202,3 +202,11 @@ jobs:
           path: |
             /home/runner/aosp_cf_phone/cuttlefish/instances/cvd-1/logs
             /home/runner/aosp_cf_phone/cuttlefish/instances/cvd-1/cuttlefish_config.json
+
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            out/*.apk
+            out/*.zip
+
